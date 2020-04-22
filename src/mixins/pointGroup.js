@@ -47,7 +47,7 @@ export default {
                     copyContent += `{${element.x},${element.y}},`
                 });
                 copyContent = copyContent.substr(0, copyContent.length - 1);
-                copyContent += `};glColor3f(0.0f,0.0f,0.0f);glBegin(GL_LINE_LOOP);for(int i = 0;i<${this.pointGroupList[index].length};i++){glVertex2f(cppArray${index+1}[i][0],cppArray${index+1}[i][1]);}`
+                copyContent += `};glColor3f(0.0f,0.0f,0.0f);glBegin(GL_LINE_LOOP);for(int i = 0;i<${this.pointGroupList[index].length};i++){glVertex2f(cppArray${index+1}[i][0],cppArray${index+1}[i][1]);}glEnd();`
             }
             this.copy(copyContent)
             console.log(copyContent);

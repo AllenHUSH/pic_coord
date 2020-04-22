@@ -25,7 +25,7 @@
     <!-- 操作 -->
     <div v-show="imageUrl">
       <h2>{{`X:${x} Y:${y}`}}</h2>
-      <v-slider v-model="relWidth" min="1" max="1000" label="图片宽度"></v-slider>
+      <v-slider v-model="relWidth" min="1" :max="maxWidth" label="图片大小" messages="注：图片大小不影响坐标计算"></v-slider>
     </div>
     <!-- 点分组 -->
     <v-card class="mt-2" v-for="(pointList, index) in pointGroupList" :key="index">
@@ -92,9 +92,10 @@
 
 <script>
 import pointGroup from "@/mixins/pointGroup";
+import maxWidth from "@/mixins/maxWidth";
 export default {
   name: "app",
-  mixins: [pointGroup],
+  mixins: [pointGroup,maxWidth],
   data() {
     return {
       mouseX: 0.0,
